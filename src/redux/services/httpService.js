@@ -1,7 +1,15 @@
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // CRA only
+
+console.log("API_BASE_URL", API_BASE_URL);
+if (!API_BASE_URL) {
+  // Optional: helps you detect misconfigured envs in dev
+  console.log("REACT_APP_API_BASE_URL is not set. Falling back to window.origin");
+}
+
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:4000",
+  baseURL: API_BASE_URL ,
   timeout: 50000,
   headers: {
     Accept: "application/json",
