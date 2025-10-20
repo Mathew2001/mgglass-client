@@ -10,6 +10,7 @@ function App() {
         <Header />
         <div className="container py-4 mt-4" dir="rtl">
           <Routes>
+            <Route path="/" element={<Navigate to="/" />} />
             {routes.map((route) => (
               <Route key={route.path} path={route.path} element={<route.element />} />
             ))}
