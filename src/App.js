@@ -3,6 +3,7 @@ import routes from './routes'
 import Header from './components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './components/Footer'
+import Home from './components/Home'
 
 function App() {
   return ( 
@@ -10,7 +11,7 @@ function App() {
         <Header />
         <div className="container py-4 mt-4" dir="rtl">
           <Routes>
-            <Route path="/" element={<Navigate to="/" />} />
+            <Route path="/" element={<Home />} />
             {routes.map((route) => (
               <Route key={route.path} path={route.path} element={<route.element />} />
             ))}
