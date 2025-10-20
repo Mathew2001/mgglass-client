@@ -1,9 +1,8 @@
 {
   "files": {
     "main.css": "/mgglass-client/static/css/main.e8f4829c.css",
-    "main.js": "/mgglass-client/static/js/main.0d691d0a.js",
+    "main.js": "/mgglass-client/static/js/main.20513f63.js",
     "static/js/255.12851d03.chunk.js": "/mgglass-client/static/js/255.12851d03.chunk.js",
-    "static/js/353.7a219c01.chunk.js": "/mgglass-client/static/js/353.7a219c01.chunk.js",
     "static/js/868.6b7116e1.chunk.js": "/mgglass-client/static/js/868.6b7116e1.chunk.js",
     "static/js/190.ae5b7b7c.chunk.js": "/mgglass-client/static/js/190.ae5b7b7c.chunk.js",
     "static/js/622.20e0f24e.chunk.js": "/mgglass-client/static/js/622.20e0f24e.chunk.js",
@@ -13,16 +12,14 @@
     "static/js/326.1d906577.chunk.js": "/mgglass-client/static/js/326.1d906577.chunk.js",
     "static/js/77.72a6c35b.chunk.js": "/mgglass-client/static/js/77.72a6c35b.chunk.js",
     "static/js/479.0ec9473d.chunk.js": "/mgglass-client/static/js/479.0ec9473d.chunk.js",
-    "static/js/858.52e309a6.chunk.js": "/mgglass-client/static/js/858.52e309a6.chunk.js",
     "static/media/bootstrap-icons.woff?": "/mgglass-client/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
     "static/media/bootstrap-icons.woff2?": "/mgglass-client/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
     "static/media/makot1.jpg": "/mgglass-client/static/media/makot1.96e61d432ad4dbaba196.jpg",
     "static/media/pergola2.jpeg": "/mgglass-client/static/media/pergola2.abcc983cfceb2abc8939.jpeg",
     "index.html": "/mgglass-client/index.html",
     "main.e8f4829c.css.map": "/mgglass-client/static/css/main.e8f4829c.css.map",
-    "main.0d691d0a.js.map": "/mgglass-client/static/js/main.0d691d0a.js.map",
+    "main.20513f63.js.map": "/mgglass-client/static/js/main.20513f63.js.map",
     "255.12851d03.chunk.js.map": "/mgglass-client/static/js/255.12851d03.chunk.js.map",
-    "353.7a219c01.chunk.js.map": "/mgglass-client/static/js/353.7a219c01.chunk.js.map",
     "868.6b7116e1.chunk.js.map": "/mgglass-client/static/js/868.6b7116e1.chunk.js.map",
     "190.ae5b7b7c.chunk.js.map": "/mgglass-client/static/js/190.ae5b7b7c.chunk.js.map",
     "622.20e0f24e.chunk.js.map": "/mgglass-client/static/js/622.20e0f24e.chunk.js.map",
@@ -31,11 +28,10 @@
     "456.8e1c28fa.chunk.js.map": "/mgglass-client/static/js/456.8e1c28fa.chunk.js.map",
     "326.1d906577.chunk.js.map": "/mgglass-client/static/js/326.1d906577.chunk.js.map",
     "77.72a6c35b.chunk.js.map": "/mgglass-client/static/js/77.72a6c35b.chunk.js.map",
-    "479.0ec9473d.chunk.js.map": "/mgglass-client/static/js/479.0ec9473d.chunk.js.map",
-    "858.52e309a6.chunk.js.map": "/mgglass-client/static/js/858.52e309a6.chunk.js.map"
+    "479.0ec9473d.chunk.js.map": "/mgglass-client/static/js/479.0ec9473d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8f4829c.css",
-    "static/js/main.0d691d0a.js"
+    "static/js/main.20513f63.js"
   ]
 }
