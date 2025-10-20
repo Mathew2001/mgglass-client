@@ -11,10 +11,11 @@ function App() {
         <Header />
         <div className="container py-4 mt-4" dir="rtl">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
             {routes.map((route) => (
               <Route key={route.path} path={route.path} element={<route.element />} />
             ))}
+            <Route path="*" element={<Navigate to="/home" replace />} />
           </Routes>
         </div>
         <Footer />
