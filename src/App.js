@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 
 function App() {
   return ( 
-      <BrowserRouter>  
+      <HashRouter>  
         <Header />
         <div className="container py-4 mt-4" dir="rtl">
           <Routes>
@@ -16,7 +16,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
