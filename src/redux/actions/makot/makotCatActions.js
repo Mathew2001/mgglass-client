@@ -37,10 +37,10 @@ export const getAllMakotCat = () => async (dispatch) => {
   }
 }
 
-export const getMakotCatByName = (name) => async (dispatch) => {
+export const getMakotCatByName = ({name,language}) => async (dispatch) => {
   dispatch({ type: MAKOT_CAT_ACTIONS.MAKOT_CAT_LOADING})
   try {
-    const res = await makotCatServices.getMakotCatByName(name);
+    const res = await makotCatServices.getMakotCatByName({name: decodeURIComponent(name),language});
     if(res){
       dispatch({ type: MAKOT_CAT_ACTIONS.GET_MAKOT_CAT_BY_NAME_SUCCESS, payload: res });
     }

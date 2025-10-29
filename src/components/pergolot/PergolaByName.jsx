@@ -6,32 +6,50 @@ import { getPergolaByCatId } from '../../redux/actions/pergolas/pergolaActions'
 import PergolaCard from './PergolaCard'
 import ROUTES from '../../const'
 import LinkPaths from '../LinkPaths'
-import { Link } from 'react-router-dom'
+import { Link, generatePath } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import SwiperItems from '../SwiperItems'
 
 const PergolaByName = () => {
   const { name } = useParams();
   const dispatch = useDispatch();
-
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
+  const language = i18n.language
+  const pergolas = t('pergolas')
+  const homePage = t('homePage')
+  const navigate = useNavigate()
   // Give defaults to avoid undefined/null during the first render
   const { pergolaCat = null, loading = false, error: catError } =
     useSelector(s => s.pergolaCatReducer) || {};
   const { pergolasByCatId = [], loading: listLoading = false, error: listError } =
     useSelector(s => s.pergolaReducer) || {};
 
+
   // 1) Fetch category whenever the route param changes
   useEffect(() => {
     if (!name) return;
     // URL parts may be encoded, normalize if needed:
-    const decoded = decodeURIComponent(name);
-    dispatch(getPergolaCatByName(decoded));
+    dispatch(getPergolaCatByName({name,language}));
   }, [dispatch, name]);
 
   // 2) When category id is ready, fetch items in that category
   useEffect(() => {
-    if (pergolaCat && pergolaCat._id) {
-      dispatch(getPergolaByCatId(pergolaCat._id));
+    if (pergolaCat && pergolaCat?._id) {
+      dispatch(getPergolaByCatId(pergolaCat?._id));
     }
   }, [dispatch, pergolaCat?._id]); // depend on the id specifically
+
+  useEffect(() => {
+    if (!pergolaCat?._id) return
+    const translated = pergolaCat?.name?.[i18n.language]
+    if (!translated) return
+    const newPath = generatePath('/pergolas/:catName', { catName: translated })
+    if (decodeURIComponent(window.location.pathname) !== newPath) {
+      navigate(newPath, { replace: true })
+    }
+  }, [i18n.language, pergolaCat?._id, pergolaCat?.name, navigate])
 
   // 3) Loading / error guards
   if (loading || listLoading) {
@@ -67,23 +85,26 @@ const PergolaByName = () => {
 
   return (
     <>
-      <div className="container py-4 mt-4" dir="rtl">
+      <div className="container py-4 mt-4" dir={dir}>
         <div className="mt-4 mb-4">
-          <h1 className="text-center">{pergolaCat.name}</h1>
-          <LinkPaths pathString={`דף הבית / פרגולות / ${pergolaCat.name}`} routeMap={{ "דף הבית": ROUTES.HOME, "פרגולות": ROUTES.PROGLOT, [pergolaCat.name]: ROUTES.PROGLOT_BY_CAT }} />
+          <h1 className="text-center">{pergolaCat?.name?.[language]}</h1>
+          <LinkPaths pathString={`${homePage} / ${pergolas} / ${pergolaCat?.name?.[language]}`} routeMap={{ [homePage]: ROUTES.HOME, [pergolas]: ROUTES.PROGLOT, [pergolaCat?.name?.[language]]: ROUTES.PROGLOT_BY_CAT }} />
         </div>
-        <div className='row row-cols-2 row-cols-lg-4 g-4'>
+        {/* <div className='row row-cols-2 row-cols-lg-4 g-4'>
           {pergolasByCatId.map(p => (
             <PergolaCard
               key={p._id}
-              name={p.name}
-              description={p.description}
+              name={p.name?.[language]}
+              description={p.description?.[language]}
               imageGallery={p.imageGallery}
               id={p._id}
-              link={`${ROUTES.PROGLOT}/${encodeURIComponent(pergolaCat.name)}/${encodeURIComponent(p.name)}`}
+              link={`${ROUTES.PROGLOT}/${encodeURIComponent(pergolaCat?.name?.[language])}/${encodeURIComponent(p?.name?.[language])}`}
             />
           ))}
-        </div>
+        </div> */}
+        <SwiperItems items={pergolasByCatId} renderItems={(item) => (
+          <PergolaCard key={item?._id} name={item?.name?.[language]} description={item?.description?.[language]} imageGallery={item?.imageGallery} id={item?._id} link={`${ROUTES.PROGLOT}/${encodeURIComponent(pergolaCat?.name?.[language])}/${encodeURIComponent(item?.name?.[language])}`} />
+        )} />
       </div>
     </>
   );

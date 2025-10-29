@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import LinkPaths from '../LinkPaths'
-import ROUTES from '../../const'
 
-const PergolaCard = ({ name, description, imageGallery, id, link }) => {
+const PergolaCard = ({ name, description, imageGallery, id, link, height }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const nextImage = (e) => {
@@ -23,7 +21,7 @@ const PergolaCard = ({ name, description, imageGallery, id, link }) => {
   }
 
   return (
-    <div className="col">
+    <div className="col" style={{ height: '500px' }}>
       <div className="card h-100">
         <Link key={id} to={link} style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="card-body">
@@ -32,8 +30,8 @@ const PergolaCard = ({ name, description, imageGallery, id, link }) => {
           <div id="carouselExample" className="carousel slide">
             <div className="carousel-inner">
               {imageGallery.map((image, index) => (
-                <div key={index} className={`carousel-item ${index === currentImageIndex ? 'active' : ''}`}>
-                  <img src={image} className="d-block w-100" alt={name} />
+                <div key={index} className={`carousel-item ${index === currentImageIndex ? 'active' : ''}`} style={{height: '300px'}}>
+                  <img src={image} className="d-block w-100 h-100" style={{objectFit: 'cover'}} alt={name} />
                 </div>
               ))}
             </div>

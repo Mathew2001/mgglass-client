@@ -1,0 +1,195 @@
+{
+  "businessName": "mielya glass",
+  "address": "mielya glass, north region",
+  "location": "location:",
+  "homePage": "home page",
+  "view": "view",
+  "homeDescription": {
+    "homePageDescription1": "experts in showers, pergolas and railings of aluminum and glass",
+    "homePageDescription2": "modern design, high quality without flaws and professional service for more than 20 years"
+  },
+  "showers": "showers",
+  "showersDescription": "Shower with glass and aluminum in high quality. We offer a wide range of modern and traditional designs, tailored to every shower room. Our showers are made of durable materials, easy to clean and maintain, and give a beautiful and clean appearance to your shower room.",
+  "pergolas": "pergolas",
+  "pergolasDescription": "Pergolas made of aluminum and glass in custom design. Our pergolas are designed carefully and tailored to the Israeli climate, providing perfect shade and elegant appearance to your yard. We mix high quality materials with advanced technology to create durable, insulated and beautiful pergolas.",
+  "railings": "railings",
+  "railingsDescription": "Railings made of aluminum and glass for home and business. Our railings mix maximum safety with modern design, suitable for stairs, terraces and roofs. We pay attention to the strongest safety standards while maintaining a clean and elegant design.",
+  "contactUs": "contact us",
+  "fullName": "full name:",
+  "email": "email:",
+  "phone": "phone:",
+  "message": "message:",
+  "send": "send",
+  "rating": "rating",
+  "addReview": "add review",
+  "reviewsTitle": "Reviews",
+  "whyUs": {
+    "title": "why choose mielya glass?",
+    "sections": {
+      "section1": {
+        "whyUsTitle1": "high quality without flaws",
+        "whyUsDescription1": "we care about using the highest quality materials for maximum durability.",
+        "whyUsDescription2": "our team brings years of experience and deep knowledge in the field."
+      },
+      "section2": {
+        "whyUsTitle2": "professionalism",
+        "whyUsDescription1": "our team brings years of experience and deep knowledge in the field.",
+        "whyUsDescription2": "we offer professional and perfect service to every customer."
+      },
+      "section3": {
+        "whyUsTitle3": "personal service",
+        "whyUsDescription1": "we offer professional and perfect service to every customer.",
+        "whyUsDescription2": "we provide full warranty on every work and commit to customer satisfaction."
+      }
+    }
+  },
+  "quickLinks": "quick links",
+  "businessHours": {
+    "title": "business hours",
+    "description": {
+      "weekdays": "monday - friday: 8:00 - 17:00",
+      "weekend": "saturday: 8:00 - 14:00",
+      "sunday": "sunday: closed"
+    }
+  },
+  "copyright": "© {{year}} mielya glass. all the rights reserved.",
+  "errorMessages": {
+    "userNameError": "user name is required",
+    "contentError": "message is required",
+    "ratingError": "please select a rating"
+  },
+  "privacyPolicy": {
+    "title": "privacy policy",
+    "sections": {
+      "section1": {
+        "title": "1. Introduction",
+        "description": "Welcome to Mielya Glass Ltd. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect the personal information you provide when you contact us or submit a review through our website."
+      },
+      "section2": {
+        "title": "2. Information We Collect",
+        "intro": "We only collect the information you voluntarily provide through our contact form or review form, which may include:",
+        "items": [
+          "Your name",
+          "Your email address or phone number",
+          "The content of your message or review"
+        ],
+        "outro": "We do not use cookies, tracking tools, or analytics."
+      },
+      "section3": {
+        "title": "3. How We Use Your Information",
+        "intro": "We use this information only to:",
+        "items": [
+          "Respond to your inquiry or message",
+          "Publish or manage your review (if you choose to leave one)",
+          "Improve our services and communication with customers"
+        ]
+      },
+      "section4": {
+        "title": "4. Data Storage and Acces",
+        "description": "All messages and reviews are stored securely and are accessible only authorized company personnel. We do not sell, rent, or share your personal information with any third party."
+      },
+      "section5": {
+        "title": "5. Retention and Deletion",
+        "description": "Messages and reviews are kept for as long as needed to fulfill the purposes above. You may request deletion or correction of your information at any time by emailing us at: glassmilya@gmail.com"
+      },
+      "section6": {
+        "title": "6. Data Security",
+        "description": "We take reasonable technical and organizational measures to protect your information against unauthorized access, loss, or misuse."
+      },
+      "section7": {
+        "title": "7. Your Rights",
+        "intro": "You may:",
+        "items": [
+          "Request a copy of the personal data we hold about you.",
+          "Ask us to delete or update your information.",
+          "Withdraw your consent to publish your review at any time."
+        ],
+        "outro": "To exercise these rights, contact us at glassmielya@gmail.com."
+      },
+      "section8": {
+        "title": "8. Updates to this Policy",
+        "description": "We may update this policy periodically. Updates will be published on this page with the revised date."
+      }
+    }
+  },
+  "legal": "legal",
+  "termsOfUse": {
+    "title": "terms of use",
+    "sections": {
+      "section1": {
+        "title": "1. Introduction",
+        "description": "Welcome to Mielya Glass Ltd. by accessing or using this website, you agree to these Terms of Use. If you do not agree, please do not use the site."
+      },
+      "section2": {
+        "title": "2. Use of the Website",
+        "items": [
+          "The website is intended to present information about our products and services, and to allow visitors to contact us or submit reviews.",
+          "You agree to use the website only for lawful purposes and in accordance with these terms.r",
+          "You must not upload, transmit, or submit any content that is false, offensive, defamatory, or violates any rights of others."
+        ]
+      },
+      "section3": {
+        "title": "3. Content",
+        "items": [
+          "When you submit a message or review, you confirm that the information you provide is accurate and that you own the rights to the content you send.",
+          "We may review, edit, or remove any review or message that includes offensive language, spam, or misleading information.",
+          "Reviews represent the opinions of users only and do not necessarily reflect the views of the Company."
+        ]
+      },
+      "section4": {
+        "title": "4. Intellectual Property",
+        "items": [
+          "All texts, images, designs, and logos appearing on this site are the exclusive property of Mielya Glass Ltd., unless stated otherwise.",
+          "You may not copy, reproduce, or distribute any part of this site without our prior written consent."
+        ]
+      },
+      "section5": {
+        "title": "5. Limitation of Liability",
+        "items": [
+          "The information on this site is provided “as is”. We strive for accuracy, but do not guarantee that the content is error-free or always up to date.",
+          "The Company is not liable for any direct or indirect damages resulting from use of the website or reliance on its content."
+        ]
+      },
+      "section6": {
+        "title": "6. External Links",
+        "description": "The site may contain links to external websites. We are not responsible for their content or privacy practices."
+      },
+      "section7": {
+        "title": "7. Changes to the Terms",
+        "description": " We may update these Terms from time to time. Updates will appear on this page with the revised date."
+      },
+      "section8": {
+        "title": "8. Governing Law",
+        "description": "These Terms are governed by the laws of the State of Israel. any disputes will be subject to the exclusive jurisdiction of the competent courts in Israel."
+      }
+    }
+  },
+  "accessibilityStatement": {
+    "title": "accessibility statement",
+    "sections": {
+      "section1": {
+        "title": "1. Our Commitment",
+        "description": "Mielya Glass Ltd. is committed to providing equal access to all users, including people with disabilities. We aim to make our website accessible in accordance with the Israeli accessibility standard 5568, which aligns with the WCAG 2.1 AA international guidelines."
+      },
+      "section2": {
+        "title": "2. Accessibility Features",
+        "items": [
+          "Semantic structure and clear headings",
+          "Keyboard navigation support",
+          "High color contrast between text and background",
+          "Alternative text for meaningful images",
+          "Responsive design for different screen sizes",
+          "Readable fonts and simple layouts"
+        ]
+      },
+      "section3": {
+        "title": "3. Third-Party Content",
+        "description": "Our website may include links or content from third-party sources (such as maps or social media widgets). We are not responsible for the accessibility of this external content, but we encourage these providers to make their services accessible."
+      },
+      "section4": {
+        "title": "4. Feedback and Contact",
+        "description": "We continuously improve our accessibility and welcome feedback. If you encounter any accessibility barriers or need information in an alternative format, please contact us:📧 glassmielya@gmail.com📞 052-4421044"
+      }
+    }
+  }
+}

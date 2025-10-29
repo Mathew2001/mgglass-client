@@ -10,8 +10,8 @@ const pergolaServices = {
   getPergolaByCatId(id){
     return requests.post(`/pergola/bycatid/${id}`);
   },
-  getPergolaByName(name){
-    return requests.post(`/pergola/byname/${name}`);
+  getPergolaByName(body){
+    return requests.post(`/pergola/byname/${body.name}`,body);
   }
 }
 

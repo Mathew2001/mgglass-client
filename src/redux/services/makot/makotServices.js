@@ -10,8 +10,8 @@ const makotServices = {
   getMakotsByCatId(id){
     return requests.post(`/makot/bycatid/${id}`);
   },
-  getMakotByName(name){
-    return requests.post(`/makot/byname/${name}`);
+  getMakotByName(body){
+    return requests.post(`/makot/byname/${body.name}`,body);
   }
 }
 

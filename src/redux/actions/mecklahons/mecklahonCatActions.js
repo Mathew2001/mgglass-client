@@ -36,10 +36,10 @@ export const getAllMeklahonCat = () => async (dispatch) => {
   }
 }
 
-export const getMeklahonCatByName = (name) => async (dispatch) => {
+export const getMeklahonCatByName = ({name,language}) => async (dispatch) => {
   dispatch({ type: MECKLAHON_CAT_ACTIONS.MECKLAHON_CAT_LOADING})
   try {
-    const res = await mecklahonCatServices.getMeklahonCatByName(name);
+    const res = await mecklahonCatServices.getMeklahonCatByName({name: decodeURIComponent(name),language});
     if(res){
       dispatch({ type: MECKLAHON_CAT_ACTIONS.GET_MECKLAHON_CAT_BY_NAME_SUCCESS, payload: res });
     }

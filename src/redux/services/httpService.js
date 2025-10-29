@@ -2,7 +2,6 @@ import axios from "axios";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // CRA only
 
-console.log("API_BASE_URL", API_BASE_URL);
 if (!API_BASE_URL) {
   // Optional: helps you detect misconfigured envs in dev
   console.log("REACT_APP_API_BASE_URL is not set. Falling back to window.origin");

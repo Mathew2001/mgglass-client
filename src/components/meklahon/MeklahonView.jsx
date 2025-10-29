@@ -5,18 +5,25 @@ import { getMeklahonByName } from '../../redux/actions/mecklahons/mecklahonActio
 import { getMeklahonCatById } from '../../redux/actions/mecklahons/mecklahonCatActions'
 import LinkPaths from '../LinkPaths'
 import ROUTES from '../../const'
-
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { generatePath } from 'react-router-dom'
+import ItemViewCard from '../ItemViewCard'
 const MeklahonView = () => {
   const { name } = useParams()
   const { mecklahon, loading ,error: mecklahonError } = useSelector(state => state.mecklahonReducer)
   const { mecklahonCat, loading: mecklahonCatLoading,error: mecklahonCatError } = useSelector(state => state.mecklahonCatReducer)
   const dispatch = useDispatch()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
+  const language = i18n.language
+  const showers = t('showers')
+  const homePage = t('homePage')
+  const navigate = useNavigate()
   useEffect(() => {
     if(!name) return;
-    dispatch(getMeklahonByName(name))
+    dispatch(getMeklahonByName({name,language}))
    }, [dispatch, name])
 
   useEffect(() => {
@@ -24,6 +31,20 @@ const MeklahonView = () => {
       dispatch(getMeklahonCatById(mecklahon?.mecklahonCatId))
     }
   }, [dispatch, mecklahon?._id])
+
+  useEffect(() => {
+    if (!mecklahon?._id || !mecklahonCat?._id) return
+    const newCat = mecklahonCat?.name?.[i18n.language]
+    const newItem = mecklahon?.name?.[i18n.language]
+    if (!newCat || !newItem) return
+    const newPath = generatePath('/showers/:catName/:name', {
+      catName: newCat,
+      name: newItem,
+    })
+    if (decodeURIComponent(window.location.pathname) !== newPath) {
+      navigate(newPath, { replace: true })
+    }
+  }, [i18n.language, mecklahon?._id, mecklahon?.name, mecklahonCat?._id, mecklahonCat?.name, navigate])
 
   if(loading || mecklahonCatLoading){
     return <div className="container py-5">
@@ -54,54 +75,15 @@ const MeklahonView = () => {
     </div>
   }
   return (
-    <div className="container py-5">
+    <div className="container py-5 mt-5" dir={dir}>
       <div className="row">
         <div className="col-12">
-          <h1 className="display-4 text-center mb-5">{mecklahon?.name}</h1>
+          <h1 className="display-4 text-center mb-5">{mecklahon?.name?.[language]}</h1>
         </div>
-      </div>
-      <div className="col-12">
-        <LinkPaths pathString={`דף הבית / מקלחונים / ${mecklahonCat.name} / ${mecklahon.name}`} routeMap={{ "דף הבית": ROUTES.HOME, "מקלחונים": ROUTES.MECKLAHONS, [mecklahonCat.name]: `${ROUTES.MECKLAHONS}/${mecklahonCat.name}`, [mecklahon.name]: `${ROUTES.MECKLAHONS}/${mecklahonCat.name}/${mecklahon.name}`}} />
-      </div>
-      <div className="row justify-content-center mb-5">
-        <div className="col-md-8">
-          <div className="position-relative">
-            <img
-              src={mecklahon?.imageGallery[currentImageIndex]}
-              alt={mecklahon?.name}
-              className="img-fluid rounded shadow"
-              style={{ width: '100%', height: '500px', objectFit: 'cover' }}
-            />
-            {mecklahon?.imageGallery.length > 1 && (
-              <>
-                <button
-                  className="btn btn-light rounded-circle position-absolute top-50 end-0 translate-middle-y me-3"
-                  onClick={() => setCurrentImageIndex((prevIndex) =>
-                    prevIndex === mecklahon?.imageGallery.length - 1 ? 0 : prevIndex + 1
-                  )}
-                  style={{ width: '45px', height: '45px' }}
-                >
-                  <i className="bi bi-chevron-right"></i>
-                </button>
-                <button
-                  className="btn btn-light rounded-circle position-absolute top-50 start-0 translate-middle-y ms-3"
-                  onClick={() => setCurrentImageIndex((prevIndex) =>
-                    prevIndex === 0 ? mecklahon?.imageGallery.length - 1 : prevIndex - 1
-                  )}
-                  style={{ width: '45px', height: '45px' }}
-                >
-                  <i className="bi bi-chevron-left"></i>
-                </button>
-              </>
-            )}
-          </div>
+        <div className="col-12">
+          <LinkPaths pathString={`${homePage} / ${showers} / ${mecklahonCat?.name?.[language]} / ${mecklahon?.name?.[language]}`} routeMap={{ [homePage]: ROUTES.HOME, [showers]: ROUTES.MECKLAHONS, [mecklahonCat?.name?.[language]]: `${ROUTES.MECKLAHONS}/${mecklahonCat?.name?.[language]}`, [mecklahon?.name?.[language]]: `${ROUTES.MECKLAHONS}/${mecklahonCat?.name?.[language]}/${mecklahon?.name?.[language]}` }} />
         </div>
-      </div>
-
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <p className="lead text-center">{mecklahon?.description}</p>
-        </div>
+        <ItemViewCard imageGallery={mecklahon?.imageGallery} currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} name={mecklahon?.name?.[language]} description={mecklahon?.description?.[language]} />
       </div>
     </div>
   )

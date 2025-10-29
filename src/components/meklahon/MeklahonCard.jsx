@@ -21,43 +21,17 @@ const MeklahonCard = ({name, description, imageGallery, id , link}) => {
   }
   
   return (
-    <div className="col" >
+    <div className="col" style={{ height: '500px' }}>
       <div className="card h-100">
       <Link key={id} to={link} style={{ textDecoration: 'none', color: 'inherit' }}>
       <div className="card-body">
         <h1 className="card-title h4 mb-3">{name}</h1>
       </div>
-      {/* <div className="position-relative" style={{height: '250px'}}>
-        <img 
-          src={imageGallery[currentImageIndex]}
-          alt={name}
-          className="w-100 h-100"
-          style={{objectFit: 'cover'}}
-        />
-        {imageGallery.length > 1 && (
-          <>
-            <button 
-              className="btn btn-light position-absolute top-50 start-0 translate-middle-y ms-2" 
-              onClick={previousImage}
-              style={{opacity: 0.8, fontSize: '24px', zIndex: 2}}
-            >
-              &#8250;
-            </button>
-            <button 
-              className="btn btn-light position-absolute top-50 end-0 translate-middle-y me-2" 
-              onClick={nextImage}
-              style={{opacity: 0.8, fontSize: '24px', zIndex: 2}}
-            >
-              &#8249;
-            </button>
-          </>
-        )}
-      </div> */}
         <div id="carouselExample" className="carousel slide">
           <div className="carousel-inner">
             {imageGallery.map((image, index) => (
-              <div key={index} className={`carousel-item ${index === currentImageIndex ? 'active' : ''}`}>
-                <img src={image} className="d-block w-100" alt={name} />
+              <div key={index} className={`carousel-item ${index === currentImageIndex ? 'active' : ''}`} style={{height: '300px'}}>
+                <img src={image} className="d-block w-100 h-100" style={{objectFit: 'cover'}} alt={name} />
               </div>
             ))}
           </div>

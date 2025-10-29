@@ -10,8 +10,8 @@ const mecklahonServices = {
   getMeklahonByCatId(id){
     return requests.post(`/mecklahon/bycatid/${id}`);
   },
-  getMeklahonByName(name){
-    return requests.post(`/mecklahon/byname/${name}`);
+  getMeklahonByName(body){
+    return requests.post(`/mecklahon/byname/${body.name}`,body);
   }
 }
 

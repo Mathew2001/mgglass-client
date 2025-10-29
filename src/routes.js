@@ -12,7 +12,9 @@ const MakotByName = lazy(() => import('./components/makot/MakotByName'))
 const MaakeView = lazy(() => import('./components/makot/MaakeView'))
 const MeklahonView = lazy(() => import('./components/meklahon/MeklahonView'))
 const PergolaView = lazy(() => import('./components/pergolot/PergolaView'))
-
+const PrivacyPolicy = lazy(() => import('./components/footer/PrivacyPolicy'))
+const TermsOfUse = lazy(() => import('./components/footer/TermsOfUse'))
+const AccessibilityStatement = lazy(() => import('./components/footer/AccessibilityStatement'))
 const routes =[
 {
   path: ROUTES.HOME,
@@ -59,7 +61,18 @@ const routes =[
   element: ContactUs,
 },
 
-
+{
+  path: ROUTES.PRIVACY_POLICY,
+  element: PrivacyPolicy,
+},
+{
+  path: ROUTES.TERMS_OF_USE,
+  element: TermsOfUse,
+},
+{
+  path: ROUTES.ACCESSIBILITY_STATEMENT,
+  element: AccessibilityStatement,
+},
 ]
 
 export default routes;

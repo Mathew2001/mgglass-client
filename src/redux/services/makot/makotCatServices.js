@@ -7,8 +7,8 @@ const makotCatServices = {
   getMakotCatById(id){
     return requests.post(`/makotCat/byid/${id}`);
   },
-  getMakotCatByName(name){
-    return requests.post(`/makotCat/byname/${name}`);
+  getMakotCatByName(body){
+    return requests.post(`/makotCat/byname/${body.name}`,body);
   }
 }
 

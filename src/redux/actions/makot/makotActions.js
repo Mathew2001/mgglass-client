@@ -52,10 +52,10 @@ export const getMakotsByCatId = (id) => async (dispatch) => {
   }
 }
 
-export const getMakotByName = (name) => async (dispatch) => {
+export const getMakotByName = ({name,language}) => async (dispatch) => {
   dispatch({ type: MAKOT_ACTIONS.MAKOT_LOADING})
   try {
-    const res = await makotServices.getMakotByName(name);
+    const res = await makotServices.getMakotByName({name: decodeURIComponent(name),language});
     if(res){
       dispatch({ type: MAKOT_ACTIONS.GET_MAKOT_BY_NAME_SUCCESS, payload: res });
     }

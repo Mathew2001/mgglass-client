@@ -36,11 +36,11 @@ export const getAllPergolaCat = () => async (dispatch) => {
   }
 }
 
-export const getPergolaCatByName = (name) => async (dispatch) => {
+export const getPergolaCatByName = ({name,language}) => async (dispatch) => {
   dispatch({ type: PERGOLA_CAT_ACTIONS.PERGOLA_CAT_LOADING})
   try {
-    const res = await pergolaCatServices.getPergolaCatByName(name);
-    console.log(res)
+    console.log(name,language)
+    const res = await pergolaCatServices.getPergolaCatByName({name: decodeURIComponent(name),language});
     if(res){
       dispatch({ type: PERGOLA_CAT_ACTIONS.GET_PERGOLA_CAT_BY_NAME_SUCCESS, payload: res });
     }

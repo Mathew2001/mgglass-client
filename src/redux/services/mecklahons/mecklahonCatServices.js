@@ -7,8 +7,8 @@ const mecklahonCatServices = {
   getMeklahonCatById(id){
     return requests.post(`/mecklahonCat/byid/${id}`);
   },
-  getMeklahonCatByName(name){
-    return requests.post(`/mecklahonCat/byname/${name}`);
+  getMeklahonCatByName(body){
+    return requests.post(`/mecklahonCat/byname/${body.name}`,body);
   }
 }
 

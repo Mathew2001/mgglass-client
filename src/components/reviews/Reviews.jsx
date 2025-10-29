@@ -1,57 +1,76 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReviewsByIsApproved } from '../../redux/actions/reviewActions'
 import { useEffect } from 'react'
 import ReviewCard from './ReviewCard'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import '../../css/swiperCss.css';
+import SwiperItems from '../SwiperItems'
 
+import { useTranslation } from 'react-i18next'
 const Reviews = () => {
   const dispatch = useDispatch()
   const { reviewsByIsApproved } = useSelector((state) => state.reviewReducer)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
+  const reviewsTitle = t('reviewsTitle')
 
   useEffect(() => {
     dispatch(getReviewsByIsApproved())
   }, [dispatch])
 
-  const nextReviews = () => {
-    if (currentIndex + 1 < reviewsByIsApproved.length - 2) {
-      setCurrentIndex(currentIndex + 1)
-    }
-  }
 
-  const previousReviews = () => {
-    if (currentIndex - 1 >= 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
-  }
 
   return (
-    <div className="container mt-5 mb-5" dir="rtl">
-      <h1 className="text-right mb-4">מה אומרים עלינו?</h1>
-      {reviewsByIsApproved && reviewsByIsApproved.length > 0 ? (
-        <>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 p-4 justify-content-start flex-wrap align-items-stretch">
+    <div className="container mt-5 mb-5" dir={dir}>
+      <h1 className="text-right mb-4">{reviewsTitle}</h1>
+      {/* {reviewsByIsApproved && reviewsByIsApproved.length > 0 ? (
+        <div className="position-relative">
+          <Swiper
+            className='reviews-swiper'
+            modules={[Navigation]}
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+              1200: {
+                slidesPerView: 4,
+              },
+            }}
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next'
+            }}
+          >
             {reviewsByIsApproved.map((review) => (
-              <ReviewCard
-                key={review._id}
-                userName={review.userName}
-                rating={review.rating}
-                content={review.content}
-              />
+              <SwiperSlide key={review._id} >
+                <ReviewCard
+                  userName={review.userName}
+                  rating={review.rating}
+                  content={review.content}
+                />
+              </SwiperSlide>
             ))}
-          </div>
-          {reviewsByIsApproved.length > 2 ? (
-            <div className="d-block d-md-none">
-              <button className="btn btn-primary" onClick={previousReviews}><i class="bi bi-arrow-right-circle-fill"></i></button>
-              <button className="btn btn-primary" onClick={nextReviews}><i class="bi bi-arrow-left-circle-fill"></i></button>
-            </div>
-          ) : null}
-        </>
+          </Swiper>
+          <div className="swiper-button-prev" ></div>
+          <div className="swiper-button-next"></div>
+        </div>
       ) : (
-        <h1>לא נמצאו תגובות</h1>
-      )}
-    </div>
-  )
+    <h1>לא נמצאו תגובות</h1>
+  )} */}
+  <SwiperItems items={reviewsByIsApproved} renderItems={(item) => (
+    <ReviewCard key={item?._id} userName={item?.userName} rating={item?.rating} content={item?.content} />
+  )} />
+</div>
+)
 }
 
-export default Reviews
+export default Reviews;

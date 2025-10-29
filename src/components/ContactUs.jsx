@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
 import { useContactUs } from '../hooks/useContactUs'
-
+import { useTranslation } from 'react-i18next'
 const ContactUs = () => {
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
+  const fullName = t('fullName')
+  const phoneLabel = t('phone')
+  const emailLabel = t('email')
+  const messageLabel = t('message')
+  const sendLabel = t('send')
+  const contactus = t('contactUs')
+
   const { onSubmit, errors } = useContactUs()
   const [formErrors, setFormErrors] = useState({})
   const [name, setName] = useState('')
@@ -54,13 +63,13 @@ const ContactUs = () => {
   }
   return (
     <div className="container pt-5 mt-5">
-      <h2 className="text-center mb-4">צור קשר</h2>
+      <h2 className="text-center mb-4">{contactus}</h2>
 
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={handleFormSubmit} className="p-4 border rounded shadow-sm" style={{ direction: 'rtl' }}>
+          <form onSubmit={handleFormSubmit} className="p-4 border rounded shadow-sm" dir={dir}>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label">שם מלא</label>
+              <label htmlFor="name" className="form-label">{fullName}</label>
               <input
                 type="text"
                 className="form-control"
@@ -72,7 +81,7 @@ const ContactUs = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="phone" className="form-label">מספר טלפון</label>
+              <label htmlFor="phone" className="form-label">{phoneLabel}</label>
               <input
                 type="tel"
                 className="form-control"
@@ -84,7 +93,7 @@ const ContactUs = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">דוא"ל</label>
+              <label htmlFor="email" className="form-label">{emailLabel}</label>
               <input
                 type="email"
                 className="form-control"
@@ -96,7 +105,7 @@ const ContactUs = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="message" className="form-label">הודעה</label>
+              <label htmlFor="message" className="form-label">{messageLabel}</label>
               <textarea
                 className="form-control"
                 id="message"
@@ -109,7 +118,7 @@ const ContactUs = () => {
               {errors.message || formErrors.message && <small className="text-danger d-block">{errors.message?.message || formErrors.message}</small>}
             </div>
 
-            <button type="submit" className="btn btn-primary w-100">שלח הודעה</button>
+            <button type="submit" className="btn btn-primary w-100">{sendLabel}</button>
           </form>
         </div>
       </div>

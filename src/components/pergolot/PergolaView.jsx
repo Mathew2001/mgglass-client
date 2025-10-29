@@ -5,29 +5,51 @@ import { getPergolaByName } from '../../redux/actions/pergolas/pergolaActions'
 import { getPergolaCatById } from '../../redux/actions/pergolas/pergolaCatActions'
 import LinkPaths from '../LinkPaths'
 import ROUTES from '../../const'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { generatePath } from 'react-router-dom'
+import ItemViewCard from '../ItemViewCard'
 
 const PergolaView = () => {
-  const { name } = useParams()
-  const { pergola, loading,error: pergolaError } = useSelector(state => state.pergolaReducer)
-  const { pergolaCat, loading: pergolaCatLoading,error: pergolaCatError } = useSelector(state => state.pergolaCatReducer)
+  const { catName, name } = useParams()
+  const { pergola, loading, error: pergolaError } = useSelector(state => state.pergolaReducer)
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
+  const language = i18n.language
+  const pergolas = t('pergolas')
+  const homePage = t('homePage')
+  const { pergolaCat, loading: pergolaCatLoading, error: pergolaCatError } = useSelector(state => state.pergolaCatReducer)
   const dispatch = useDispatch()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if(name){
-    dispatch(getPergolaByName(name))
+    if (name) {
+      dispatch(getPergolaByName({ name: decodeURIComponent(name), language }))
     }
   }, [dispatch, name])
 
   useEffect(() => {
-    if(pergola?._id){
+    if (pergola?._id) {
       dispatch(getPergolaCatById(pergola?.pergolaCatId))
     }
   }, [dispatch, pergola?._id])
 
+  useEffect(() => {
+    if (!pergola?._id || !pergolaCat?._id) return
+    const newCat = pergolaCat?.name?.[i18n.language]
+    const newItem = pergola?.name?.[i18n.language]
+    if (!newCat || !newItem) return
+    const newPath = generatePath('/pergolas/:catName/:name', {
+      catName: newCat,
+      name: newItem,
+    })
+    if (decodeURIComponent(window.location.pathname) !== newPath) {
+      navigate(newPath, { replace: true })
+    }
+  }, [i18n.language, pergola?._id, pergola?.name, pergolaCat?._id, pergolaCat?.name, navigate])
 
-  if(loading || pergolaCatLoading){
+  if (loading || pergolaCatLoading) {
     return <div className="container py-5">
       <div className="row">
         <div className="col-12">
@@ -36,7 +58,7 @@ const PergolaView = () => {
       </div>
     </div>
   }
-  if(pergolaError || pergolaCatError){
+  if (pergolaError || pergolaCatError) {
     return <div className="container py-5">
       <div className="row">
         <div className="col-12">
@@ -45,7 +67,7 @@ const PergolaView = () => {
       </div>
     </div>
   }
-  if(!pergola || !pergolaCat){
+  if (!pergola || !pergolaCat) {
     return <div className="container py-5">
       <div className="row">
         <div className="col-12">
@@ -55,54 +77,15 @@ const PergolaView = () => {
     </div>
   }
   return (
-    <div className="container py-5">
+    <div className="container py-5 mt-5" dir={dir}>
       <div className="row">
         <div className="col-12">
-          <h1 className="display-4 text-center mb-5">{pergola?.name}</h1>
+          <h1 className="display-4 text-center mb-5">{pergola?.name?.[language]}</h1>
         </div>
-      </div>
-      <div className="col-12">
-        <LinkPaths pathString={`דף הבית / פרגולות / ${pergolaCat.name} / ${pergola.name}`} routeMap={{ "דף הבית": ROUTES.HOME, "פרגולות": ROUTES.PROGLOT, [pergolaCat.name]: `${ROUTES.PROGLOT}/${pergolaCat.name}`, [pergola.name]: `${ROUTES.PROGLOT}/${pergolaCat.name}/${pergola.name}`}} />
-      </div>
-      <div className="row justify-content-center mb-5">
-        <div className="col-md-8">
-          <div className="position-relative">
-            <img
-              src={pergola?.imageGallery[currentImageIndex]}
-              alt={pergola?.name}
-              className="img-fluid rounded shadow"
-              style={{ width: '100%', height: '500px', objectFit: 'cover' }}
-            />
-            {pergola?.imageGallery.length > 1 && (
-              <>
-                <button
-                  className="btn btn-light rounded-circle position-absolute top-50 end-0 translate-middle-y me-3"
-                  onClick={() => setCurrentImageIndex((prevIndex) =>
-                    prevIndex === pergola?.imageGallery.length - 1 ? 0 : prevIndex + 1
-                  )}
-                  style={{ width: '45px', height: '45px' }}
-                >
-                  <i className="bi bi-chevron-right"></i>
-                </button>
-                <button
-                  className="btn btn-light rounded-circle position-absolute top-50 start-0 translate-middle-y ms-3"
-                  onClick={() => setCurrentImageIndex((prevIndex) =>
-                    prevIndex === 0 ? pergola?.imageGallery.length - 1 : prevIndex - 1
-                  )}
-                  style={{ width: '45px', height: '45px' }}
-                >
-                  <i className="bi bi-chevron-left"></i>
-                </button>
-              </>
-            )}
-          </div>
+        <div className="col-12">
+          <LinkPaths pathString={`${homePage} / ${pergolas} / ${catName} / ${name}`} routeMap={{ [homePage]: ROUTES.HOME, [pergolas]: ROUTES.PROGLOT, [catName]: `${ROUTES.PROGLOT}/${catName}`, [name]: `${ROUTES.PROGLOT}/${catName}/${name}` }} />
         </div>
-      </div>
-
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <p className="lead text-center">{pergola?.description}</p>
-        </div>
+        <ItemViewCard imageGallery={pergola?.imageGallery} currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} name={pergola?.name?.[language]} description={pergola?.description?.[language]} />
       </div>
     </div>
   )
