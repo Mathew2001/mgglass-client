@@ -1,0 +1,225 @@
+html, body {
+  overflow-x: hidden;
+}
+
+.header-image{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.buttonLink {
+  background: transparent !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+
+.buttonLink:hover,
+.buttonLink:focus {
+  background: #f0f0f091 !important;
+  color: #fff !important;
+}
+
+.contactButton {
+  background: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  width: 100% !important;
+  height: 50px !important;
+}
+.contactButton:hover,
+.contactButton:focus {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+
+.card-img-overlay-out {
+  pointer-events: none;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.card-img-overlay-text {
+  background: rgba(0,0,0,0.46) !important;
+  padding: 0.75rem 0 0.4rem 0 !important;
+}
+
+@media (min-width: 1200px) {
+  .header-image {
+    object-fit: cover !important;
+    height: 100vh !important;
+    width: 100% !important;
+  }
+  .home-image{
+    height: 350px;
+  }
+  .about-us-image{
+    height: 600px;
+  } 
+  .card-text-about-us{
+    font-size: 1.4rem !important;
+  }
+  .text-hero{
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-image {
+    object-fit: cover !important;
+    height: 40vh !important;
+    width: 100% !important;
+  }
+  .home-image{
+    height: 270px;
+  }
+  .about-us-image{
+    height: 400px;
+  }
+  .why-us-image{
+    height: 400px;
+  }
+  .card-text-about-us{
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-image{
+    height: 250px;
+  }
+  .about-us-image{
+    height: 300px;
+  }
+  .card-text-about-us{
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Card Animation Styles */
+.pergola-card-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered animation delays for multiple cards */
+.pergola-card-animate:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.pergola-card-animate:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.pergola-card-animate:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.pergola-card-animate:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.pergola-card-animate:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.pergola-card-animate:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.pergola-card-animate:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.pergola-card-animate:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.pergola-card-animate:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.pergola-card-animate:nth-child(n+10) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card hover animation - smooth lift effect */
+.pergola-card-animate .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.pergola-card-animate .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Image zoom effect on hover */
+.pergola-card-animate .card:hover .card-img {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.pergola-card-animate .card-img {
+  transition: transform 0.5s ease;
+}
+
+/* Home Card Hover Animations */
+.home-card-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+.home-card-img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-card-hover:hover .home-card-img {
+  transform: scale(1.1);
+  filter: brightness(0.9);
+}
+
+.home-card-overlay {
+  transition: background-color 0.4s ease, opacity 0.4s ease;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.home-card-hover:hover .home-card-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.home-card-title {
+  transition: transform 0.4s ease, font-size 0.4s ease;
+  transform: translateY(0);
+}
+
+.home-card-hover:hover .home-card-title {
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}

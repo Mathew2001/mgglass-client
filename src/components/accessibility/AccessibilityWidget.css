@@ -1,0 +1,262 @@
+/* Accessibility Font Size Adjustments */
+.accessibility-small-text {
+  font-size: 85% !important;
+}
+
+.accessibility-small-text * {
+  font-size: inherit !important;
+}
+
+.accessibility-large-text {
+  font-size: 120% !important;
+}
+
+.accessibility-large-text * {
+  font-size: inherit !important;
+}
+
+.accessibility-xlarge-text {
+  font-size: 150% !important;
+}
+
+.accessibility-xlarge-text * {
+  font-size: inherit !important;
+}
+
+/* Accessibility Font Family Adjustments */
+.accessibility-font-arial * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.accessibility-font-verdana * {
+  font-family: Verdana, Geneva, sans-serif !important;
+}
+
+.accessibility-font-comic * {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+}
+
+.accessibility-font-tahoma * {
+  font-family: Tahoma, Geneva, sans-serif !important;
+}
+
+.accessibility-font-opendyslexic * {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', Arial, sans-serif !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* High Contrast Mode */
+.accessibility-high-contrast {
+  filter: contrast(1.5) brightness(1.1) !important;
+}
+
+.accessibility-high-contrast * {
+  filter: inherit !important;
+}
+
+.accessibility-high-contrast img,
+.accessibility-high-contrast video {
+  filter: contrast(1.5) brightness(1.1) !important;
+}
+
+/* Dark Mode */
+.accessibility-dark-mode {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.accessibility-dark-mode * {
+  background-color: inherit !important;
+  color: inherit !important;
+  border-color: #ffffff !important;
+}
+
+.accessibility-dark-mode a {
+  color: #66b3ff !important;
+}
+
+.accessibility-dark-mode button {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* White Mode - Pure white background with black text */
+.accessibility-white-mode {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.accessibility-white-mode * {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.accessibility-white-mode a {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+.accessibility-white-mode button {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+.accessibility-white-mode input,
+.accessibility-white-mode textarea,
+.accessibility-white-mode select {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Black Mode - Pure black background with white text */
+.accessibility-black-mode {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.accessibility-black-mode * {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.accessibility-black-mode a {
+  color: #66b3ff !important;
+  text-decoration: underline !important;
+}
+
+.accessibility-black-mode button {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+.accessibility-black-mode input,
+.accessibility-black-mode textarea,
+.accessibility-black-mode select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Grayscale Mode */
+.accessibility-grayscale {
+  filter: grayscale(100%) !important;
+}
+
+.accessibility-grayscale * {
+  filter: grayscale(100%) !important;
+}
+
+.accessibility-grayscale img,
+.accessibility-grayscale video {
+  filter: grayscale(100%) !important;
+}
+
+/* Underline Links */
+.accessibility-underline-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+/* Stop Animations */
+.accessibility-stop-animations *,
+.accessibility-stop-animations *::before,
+.accessibility-stop-animations *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Highlight Focus - Only for keyboard navigation, not mouse clicks */
+.accessibility-highlight-focus *:focus-visible {
+  outline: 4px solid #0066cc !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.3) !important;
+}
+
+.accessibility-highlight-focus button:focus-visible,
+.accessibility-highlight-focus a:focus-visible,
+.accessibility-highlight-focus input:focus-visible,
+.accessibility-highlight-focus textarea:focus-visible,
+.accessibility-highlight-focus select:focus-visible {
+  outline: 4px solid #0066cc !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.3) !important;
+}
+
+/* Remove outline on mouse clicks even when highlight focus is enabled */
+.accessibility-highlight-focus *:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Large Cursor */
+.accessibility-large-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%230066cc" opacity="0.5"/><circle cx="12" cy="12" r="2" fill="%230066cc"/></svg>') 12 12, auto !important;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0066cc;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Ensure accessibility widget is always accessible */
+.accessibility-widget-button:focus {
+  outline: 4px solid #0066cc !important;
+  outline-offset: 2px !important;
+}
+
+.accessibility-widget-panel:focus {
+  outline: 4px solid #0066cc !important;
+  outline-offset: 2px !important;
+}
+
+/* Panel Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar for Panel */
+.accessibility-widget-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.accessibility-widget-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.accessibility-widget-panel::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.accessibility-widget-panel::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
